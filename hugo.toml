@@ -80,9 +80,9 @@ defaultContentLanguageInSubdir = false
     url = '/search/'
     weight = 4
   [[menus.main]]
-    identifier = 'friends'
-    name = '友链'
-    url = '/friends/'
+    identifier = 'resources'
+    name = '资源推荐'
+    url = '/resources/'
     weight = 5
 
 [outputs]
