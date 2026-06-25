@@ -8,7 +8,7 @@ defaultContentLanguageInSubdir = false
 
 [params]
   env = 'production'
-  description = 'Palemoky 的个人博客，记录思考，分享所学'
+  description = '七窍通了六窍'
   author = 'Palemoky'
   defaultTheme = 'auto'
   ShowReadingTime = true
@@ -33,7 +33,7 @@ defaultContentLanguageInSubdir = false
 
   [[params.socialIcons]]
     name = 'github'
-    url = 'https://github.com/Palemoky'
+    url = 'https://github.com/palemoky'
 
   [params.assets]
     disableHLJS = true
@@ -52,11 +52,11 @@ defaultContentLanguageInSubdir = false
     weight = 1
     [languages.zh.params]
       description = 'Palemoky 的个人博客，记录思考，分享所学'
-  [languages.en]
-    label = 'English'
-    weight = 2
-    [languages.en.params]
-      description = "Palemoky's personal blog"
+  # [languages.en]
+  #   label = 'English'
+  #   weight = 2
+  #   [languages.en.params]
+  #     description = "Palemoky's personal blog"
 
 [menus]
   [[menus.main]]
@@ -79,6 +79,11 @@ defaultContentLanguageInSubdir = false
     name = '搜索'
     url = '/search/'
     weight = 4
+  [[menus.main]]
+    identifier = 'friends'
+    name = '友链'
+    url = '/friends/'
+    weight = 5
 
 [outputs]
   home = ['html', 'rss', 'json']
