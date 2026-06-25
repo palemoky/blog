@@ -4,3 +4,5 @@ resources/_gen/
 hugo_stats.json
 node_modules/
 .DS_Store
+.obsidian
+.smart-env
