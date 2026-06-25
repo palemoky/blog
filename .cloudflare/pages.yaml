@@ -1,4 +1,0 @@
-build_config:
-  build_command: hugo --minify
-  destination_dir: public
-  root_dir: ""
