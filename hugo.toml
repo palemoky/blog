@@ -1,6 +1,6 @@
 baseURL = 'https://blog.palemoky.com/'
-title = "Palemoky's Blog"
-copyright = '© 2025 Palemoky'
+title = "Palemoky"
+copyright = '© 2026 Palemoky'
 paginate = 10
 enableRobotsTXT = true
 defaultContentLanguage = 'zh'
@@ -26,8 +26,10 @@ defaultContentLanguageInSubdir = false
   hideSummary = false
 
   [params.homeInfoParams]
-    Title = '你好'
-    Content = '欢迎来到我的博客，这里记录思考、分享所学。'
+    Title = '👋 Hi there'
+    Content = """
+
+"""
 
   [[params.socialIcons]]
     name = 'github'
@@ -84,3 +86,7 @@ defaultContentLanguageInSubdir = false
 [module]
   [[module.imports]]
     path = 'github.com/adityatelange/hugo-PaperMod'
+
+[params.giscus]
+  lightTheme = "light"
+  darkTheme = "dark"

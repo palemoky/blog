@@ -1,16 +1,46 @@
-<script src="https://giscus.app/client.js"
-  data-repo="palemoky/blog"
-  data-repo-id="R_kgDOTEbl1Q"
-  data-category="Announcements"
-  data-category-id="DIC_kwDOTEbl1c4C_1oe"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="top"
-  data-theme="preferred_color_scheme"
-  data-lang="zh-CN"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async>
+<div id="giscus-container"></div>
+<script>
+  (function () {
+    const lightTheme = '{{ .Site.Params.giscus.lightTheme | default "light" }}';
+    const darkTheme  = '{{ .Site.Params.giscus.darkTheme  | default "dark"  }}';
+
+    function currentTheme() {
+      return document.body.classList.contains('dark') ? darkTheme : lightTheme;
+    }
+
+    function updateGiscus() {
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (iframe) {
+        iframe.contentWindow.postMessage(
+          { giscus: { setConfig: { theme: currentTheme() } } },
+          'https://giscus.app'
+        );
+      }
+    }
+
+    // 用 JS 注入 script，确保 data-theme 在 giscus 初始化前就已正确
+    const s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo',            'palemoky/blog');
+    s.setAttribute('data-repo-id',         'R_kgDOTEbl1Q');
+    s.setAttribute('data-category',        'Announcements');
+    s.setAttribute('data-category-id',     'DIC_kwDOTEbl1c4C_1oe');
+    s.setAttribute('data-mapping',         'pathname');
+    s.setAttribute('data-strict',          '0');
+    s.setAttribute('data-reactions-enabled','1');
+    s.setAttribute('data-emit-metadata',   '0');
+    s.setAttribute('data-input-position',  'top');
+    s.setAttribute('data-theme',           currentTheme());
+    s.setAttribute('data-lang',            'zh-CN');
+    s.setAttribute('data-loading',         'lazy');
+    s.setAttribute('crossorigin',          'anonymous');
+    s.async = true;
+    document.getElementById('giscus-container').appendChild(s);
+
+    // 监听 PaperMod 主题切换（切换时 body class 增删 'dark'）
+    new MutationObserver(updateGiscus).observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+  })();
 </script>
