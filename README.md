@@ -5,5 +5,5 @@
 hugo new content posts/my-post
 
 # 本地预览
-hugo server
+hugo server -D
 ```

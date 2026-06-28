@@ -108,17 +108,11 @@ tags:
 
 ```bash
 find /path -name "*.log"                 # 按名称查找
-
 find /path -type f -name "*.conf"        # 按类型查找（f 文件，d 目录，l 符号链接）
-
 find /path -type f -mtime -7             # 按修改时间查找（7 天内修改过的文件）
-
 find /path -type f -size +100M           # 按文件大小查找（大于 100M 的文件）
-
 find /path -name "*.tmp" -exec rm {} \;  # 查找并执行操作（删除所有 .tmp 文件）
-
 find /path -empty                        # 查找空文件或空目录
-
 find /path -perm 755                     # 按权限查找
 ```
 
