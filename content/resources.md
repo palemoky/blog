@@ -36,7 +36,7 @@ title: 资源推荐
 
 ## 数学
 
-- [GeoGebra](https://www.geogebra.org/calculator) - 功能强大的在线数学工具，支持2D/3D绘图、几何作图、表格计算和统计分析等多种功能，非常适合学生和教师进行数学学习和教学
+- [GeoGebra](https://www.geogebra.org/calculator) - 功能强大的在线数学工具，支持2D/3D绘图、几何作图、表格计算和统计分析等多种功能
 - [NumberEmpire](https://numberempire.com/) - 支持代数、几何、微积分等多种运算
 
 ## 天文
