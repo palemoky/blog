@@ -7,9 +7,10 @@ title: 资源推荐
 - [Hacker News Top](https://hntoplinks.com/) - 高质量技术资讯
 - [Lobste](https://lobste.rs/top/1w) - 与 Hacker News 相似的技术社区
 
-## 个人博客
+## 博客
 
 - [antirez](https://antirez.com/) - Redis 作者博客
+- [Cloudflare](https://blog.cloudflare.com/) - Cloudflare Blog
 
 ## CS 资料
 
@@ -36,7 +37,7 @@ title: 资源推荐
 
 ## 数学
 
-- [GeoGebra](https://www.geogebra.org/calculator) - 功能强大的在线数学工具，支持2D/3D绘图、几何作图、表格计算和统计分析等多种功能
+- [GeoGebra](https://www.geogebra.org/calculator) - 功能强大的在线数学工具，支持 2D/3D 绘图、几何作图、表格计算和统计分析等多种功能
 - [NumberEmpire](https://numberempire.com/) - 支持代数、几何、微积分等多种运算
 
 ## 天文
@@ -59,3 +60,8 @@ title: 资源推荐
 
 - [GeaCron](http://geacron.com/) - 交互式世界地图，可以查看世界各朝代的变迁
 - [Chronas](https://www.chronas.org/) - 交互式地图和时间轴查看历史事件，并可直接查看维基百科
+
+## 工具
+
+- [PixPin](https://pixpin.cn/) - 免费、高效的截图工具，支持标注、贴图、OCR、GIF 录屏、长截图等
+- [Draw.io](https://app.diagrams.net/) - 免费的流程图绘图工具
