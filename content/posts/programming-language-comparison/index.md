@@ -2,8 +2,7 @@
 title: 不同编程语言对比
 date: 2026-06-25T19:33:18+08:00
 draft: true
-tags:
-  - 编程
+tags: [编程]
 ---
 
 ## 解释器与JIT
