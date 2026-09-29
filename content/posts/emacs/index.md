@@ -425,3 +425,95 @@ Refile 指把任务从收件箱移到它该去的地方：
 
 - **属性与列视图**：给任务添加预估工时等字段，以表格形式查看
 - **手机同步**：通过网盘同步 Org 文件，在手机上用 beorg（iOS）或 Orgzly（Android）查看和编辑
+
+## Doom Emacs
+
+从零配置 Emacs 很容易陷进去：选包、配按键、调性能，折腾好几天还没开始干正事。[Doom Emacs](https://github.com/doomemacs/doomemacs) 把这些都做好了：启动快，默认使用 Vim 按键，上面讲的 Org mode、Magit、Dired 等功能也都已配好，装完就能直接用。
+
+如果你熟悉 LazyVim，上手 Doom 几乎没有门槛。两者的设计思路如出一辙：都以空格作为 leader 键，按下后弹出菜单提示后续按键，键位也大多按英文首字母组织，比如 `SPC f` 管文件、`SPC b` 管缓冲区、`SPC g` 管 Git。
+
+### 安装
+
+先装好 Emacs（建议 29 或以上）和几个依赖，再克隆 Doom 并运行安装脚本：
+
+```bash
+brew install --cask emacs
+brew install git ripgrep fd
+
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+~/.config/emacs/bin/doom install
+```
+
+之后可以把 `~/.config/emacs/bin` 加进 `PATH`，就能在任意位置直接运行 `doom` 命令。
+
+### 配置文件
+
+Doom 的个人配置都在 `~/.config/doom/` 目录下，一共三个文件：
+
+| 文件          | 用途                                                       |
+| ------------- | ---------------------------------------------------------- |
+| `init.el`     | 开启或关闭模块，比如 `org`、`magit`、`evil`，取消注释即开启 |
+| `config.el`   | 个人配置，前文所有 `init.el` 里的配置都写到这里             |
+| `packages.el` | 安装模块之外的第三方包                                     |
+
+修改 `init.el` 或 `packages.el` 后，要运行一次 `doom sync` 再重启 Emacs 才会生效；只改 `config.el` 的话，直接重启即可。
+
+### 常用命令
+
+| 命令           | 作用                                             |
+| -------------- | ------------------------------------------------ |
+| `doom sync`    | 按配置安装、删除包，改完 `init.el` 后必须运行    |
+| `doom upgrade` | 升级 Doom 本身和所有包                           |
+| `doom doctor`  | 检查缺少的依赖和常见配置问题，出问题时先跑它     |
+| `doom env`     | 重新读取 shell 的环境变量，比如修改 `PATH` 之后  |
+
+### SPC 键
+
+Doom 默认启用 evil（Emacs 里的 Vim 模拟），`i` 进入插入模式，`Esc` 回到普通模式，`:w`、`dd` 这些 Vim 操作都能用。
+
+在普通模式下按 `SPC`，会弹出一个菜单列出所有后续按键，按键大多是英文单词的首字母，不用刻意背：
+
+| 按键             | 作用                                   | 对应原生按键   |
+| ---------------- | -------------------------------------- | -------------- |
+| `SPC .`          | 打开文件                               | `C-x C-f`      |
+| `SPC f r`        | 打开最近的文件                         |                |
+| `SPC SPC`        | 在当前项目里查找文件                   |                |
+| `SPC b b`        | 切换缓冲区                             | `C-x b`        |
+| `SPC b k`        | 关闭缓冲区                             | `C-x k`        |
+| `SPC w v` / `SPC w s` | 左右 / 上下拆分窗口               | `C-x 3` / `C-x 2` |
+| `SPC w h/j/k/l`  | 切换到左 / 下 / 上 / 右边的窗口        |                |
+| `SPC :`          | 按名字执行命令                         | `M-x`          |
+| `SPC h`          | 帮助系统，比如 `SPC h k` 查看按键      | `C-h`          |
+| `SPC s p`        | 在整个项目里搜索文本                   |                |
+| `SPC g g`        | 打开 Magit                             |                |
+| `SPC q q`        | 退出 Emacs                             | `C-x C-c`      |
+
+`SPC m` 是当前模式专属的菜单，比如在 Org 文件里按 `SPC m`，会列出 Org 的所有操作。
+
+### 在 Doom 里用 Org mode
+
+前文讲的 `C-c` 开头的按键在 Doom 里照常可用，另外还有更顺手的 `SPC` 入口：
+
+| 按键      | 作用                                    |
+| --------- | --------------------------------------- |
+| `SPC X`   | Capture，相当于前文的 `C-c c`           |
+| `SPC o A` | 打开 Agenda 菜单，相当于前文的 `C-c a`  |
+| `SPC m`   | Org 文件里的操作菜单                    |
+
+Doom 默认把 Org 文件放在 `~/org/`，并自动把这个目录设为 Agenda 的扫描范围，还自带了几个 Capture 模板，所以前文的 `org-agenda-files` 和快捷键绑定都可以省掉。
+
+要注意的是，Doom 会在 Org 加载时写入自己的默认值，直接 `setq` 的配置可能会被覆盖。Org 相关的配置要包在 `after! org` 里：
+
+```elisp
+;; config.el
+(setq org-directory "~/org/")  ; 这一行例外，要在 Org 加载前设置，所以放在外面
+
+(after! org
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "DOING(i)" "WAITING(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
+  (setq org-log-into-drawer t))
+```
+
+### 不想用 Vim 按键？
+
+在 `init.el` 里注释掉 `evil` 这一行，运行 `doom sync` 后重启，就会变回原生的 Emacs 按键，前文所有 `C-x`、`C-c` 快捷键都能直接用。Doom 的其他好处，比如启动速度和预装的模块，都会保留下来。
