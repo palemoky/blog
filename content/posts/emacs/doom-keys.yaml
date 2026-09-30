@@ -1,0 +1,108 @@
+columns: [分类, 操作组, 按键, 作用]
+sections:
+- name: 基础编辑（Vim）
+  groups:
+  - name: 模式切换
+    rows:
+    - ['`Esc`', 回到 Normal 模式（迷路时先按它）]
+    - ['`i`', 在光标前进入 Insert 模式]
+    - ['`a`', 在光标后进入 Insert 模式]
+    - ['`o`', 在下方新开一行并进入 Insert]
+    - ['`O`', 在上方新开一行并进入 Insert]
+  - name: 光标移动
+    rows:
+    - ['`h j k l`', 左 / 下 / 上 / 右]
+    - ['`w` / `b`', 按词向后 / 向前跳]
+    - ['`gg` / `G`', 跳到文件开头 / 结尾]
+  - name: 剪切复制
+    rows:
+    - ['`dd`', 剪切（删除）当前行]
+    - ['`yy`', 复制当前行]
+    - ['`p`', 粘贴到下方]
+    - ['`u`', 撤销]
+    - ['`C-r`', 重做]
+  - name: 搜索
+    rows:
+    - ['`/关键词 RET`', 向下搜索]
+    - ['`n` / `N`', 下一个 / 上一个匹配]
+- name: 文件与窗口
+  groups:
+  - name: 文件
+    rows:
+    - ['`SPC f f`', 打开文件]
+    - ['`SPC f r`', 最近打开的文件]
+    - ['`SPC f s`', '保存（也可用 :w RET）']
+  - name: 缓冲区
+    rows:
+    - ['`SPC b b`', 切换缓冲区]
+    - ['`SPC b k`', 关闭当前缓冲区]
+    - ['`` SPC ` ``', 切回上一个缓冲区]
+  - name: 窗口
+    rows:
+    - ['`SPC w v`', 左右分屏]
+    - ['`SPC w s`', 上下分屏]
+    - ['`SPC w w`', 切换到下一个窗口]
+    - ['`SPC w d`', 关闭当前窗口]
+  - name: 退出
+    rows:
+    - ['`SPC q q`', 退出 Emacs]
+    - ['`:wq RET`', 保存并退出]
+- name: Org 编辑
+  groups:
+  - name: 结构与折叠
+    rows:
+    - ['`Tab`', 折叠 / 展开当前标题]
+    - ['`S-Tab`', 折叠 / 展开整个文件]
+    - ['`>>` / `<<`', 标题降一级 / 升一级]
+  - name: 任务状态
+    rows:
+    - ['`SPC m t`', 弹出状态列表，按字母选择（字母在 `org-todo-keywords` 里配置）]
+    - ['`RET`', 在标题上切换 TODO ↔ DONE]
+  - name: 日期
+    rows:
+    - ['`SPC m d s`', 设置计划日期（SCHEDULED）]
+    - ['`SPC m d d`', 设置截止日期（DEADLINE）]
+    - ['`SPC m d t`', 插入时间戳]
+  - name: 日历中输入
+    rows:
+    - ['`fri`', 本周/下周五]
+    - ['`+3`', 三天后]
+    - ['`10-15`', 10 月 15 日]
+    - ['`RET`', 确认日期]
+  - name: 标签与优先级
+    rows:
+    - ['`SPC m q`', 设置标签]
+    - ['`SPC m p p`', 设置优先级]
+- name: 快速记录（Capture）
+  groups:
+  - name: 记录一条待办
+    rows:
+    - ['`SPC X`', 打开 Org Capture 菜单（X 为大写）]
+    - ['`t`', 选择“待办”模板，写入 todo.org 的 Inbox]
+    - ['`C-c C-c`', 保存并关闭]
+    - ['`C-c C-k`', 放弃]
+  - name: 备用入口
+    rows:
+    - ['`C-c c`', 前文配置的全局绑定，Insert 模式下也能用]
+- name: 日程视图（Agenda）
+  groups:
+  - name: 打开
+    rows:
+    - ['`SPC o A`', 打开 Agenda 选择菜单]
+    - ['`a`', 按周查看日程]
+    - ['`t`', 列出全部 TODO]
+  - name: 视图内操作
+    rows:
+    - ['`j` / `k`', 上下移动]
+    - ['`RET`', 跳到对应条目]
+    - ['`t`', 修改任务状态]
+    - ['`[` / `]`', 上一周 / 下一周]
+    - ['`.`', 回到今天]
+    - ['`q`', 退出日程视图]
+- name: 帮助
+  groups:
+  - name: 查询
+    rows:
+    - ['`SPC`', 按下后稍等，弹出 which-key 菜单，看可用按键]
+    - ['`SPC h k`', 按任意键，查看它的作用]
+    - ['`SPC h e`', 打开 *Messages*，看报错信息]

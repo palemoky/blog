@@ -1,0 +1,38 @@
+columns: [分类, 操作, Doom Emacs, LazyVim]
+sections:
+- name: 文件
+  rows:
+  - [在项目里查找文件, '`SPC SPC`', '`<leader><space>`']
+  - [最近打开的文件, '`SPC f r`', '`<leader>fr`']
+  - [保存, '`SPC f s`', '`<C-s>`']
+  - [文件树, '`SPC o -`（Dired）', '`<leader>e`']
+- name: 缓冲区
+  rows:
+  - [切换缓冲区, '`SPC ,` / `SPC b b`', '`<leader>,`']
+  - [上一个 / 下一个, '`[b` / `]b`', '`<S-h>` / `<S-l>`']
+  - [切回上一个, '`` SPC ` ``', '`` <leader>` ``']
+  - [关闭, '`SPC b k`', '`<leader>bd`']
+- name: 窗口
+  rows:
+  - [左右分屏, '`SPC w v`', '`<leader>|`']
+  - [上下分屏, '`SPC w s`', '`<leader>-`']
+  - [切换窗口, '`SPC w h/j/k/l`', '`<C-h/j/k/l>`']
+  - [关闭窗口, '`SPC w d`', '`<leader>wd`']
+  - [退出, '`SPC q q`', '`<leader>qq`']
+- name: 搜索
+  rows:
+  - [在项目里搜索文本, '`SPC /`', '`<leader>/`']
+- name: 写代码
+  rows:
+  - [跳到定义, '`gd`', '`gd`']
+  - [列出引用, '`gD`', '`gr`']
+  - [查看文档, '`K`', '`K`']
+  - [代码操作, '`SPC c a`（需 `lsp` 模块）', '`<leader>ca`']
+  - [重命名, '`SPC c r`（需 `lsp` 模块）', '`<leader>cr`']
+  - [格式化, '`SPC c f`（需 `format` 模块）', '`<leader>cf`']
+- name: 工具
+  rows:
+  - [Git, '`SPC g g`（Magit）', '`<leader>gg`（Lazygit）']
+  - [终端, '`SPC o t`（需 `vterm` 模块）', '`<C-/>`']
+  - [执行命令, '`SPC :`', '`:`']
+  - [查看按键, '`SPC h k`', '`<leader>sk`']

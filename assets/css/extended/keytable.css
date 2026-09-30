@@ -1,0 +1,88 @@
+/* 按键速查表（layouts/shortcodes/keytable.html） */
+.keytable-wrap {
+    overflow-x: auto;
+    margin-bottom: var(--content-gap);
+}
+
+.md-content .keytable {
+    display: table;          /* PaperMod 的 reset 把 table 设成了 block，改回来才能按容器宽度分配列宽 */
+    width: 100%;
+    margin-bottom: 0;
+    border-collapse: collapse;
+    word-break: normal;      /* 主题默认 keep-all，中文不会在字之间折行，会把列撑宽 */
+}
+
+.keytable td {
+    vertical-align: middle;
+}
+
+/* 合并的分类、操作组两列 */
+.md-content .keytable .keytable-section,
+.md-content .keytable .keytable-group {
+    min-width: 0;
+    white-space: nowrap;
+    background: var(--code-bg);
+}
+
+.md-content .keytable .keytable-section {
+    font-weight: 600;
+}
+
+/* 按键不折行，避免 SPC m d s 被拆到两行 */
+.keytable td code {
+    white-space: nowrap;
+}
+
+/* 手机上让分类、操作组两列折行，把宽度留给按键和说明 */
+@media (max-width: 600px) {
+    /* 选择器要比主题的 .md-content table:not(...) td 更具体，才能盖住它的 min-width 和 padding */
+    .md-content table.keytable:not(.highlighttable, .highlight table, .gist .highlight) th,
+    .md-content table.keytable:not(.highlighttable, .highlight table, .gist .highlight) td {
+        min-width: 0;
+        padding: 6px 8px;
+    }
+
+    .md-content .keytable .keytable-section,
+    .md-content .keytable .keytable-group {
+        white-space: normal;
+    }
+
+    /* 四列太挤，隐藏操作组这一列。它是合并单元格，隐藏后其余行不会错位 */
+    .md-content .keytable-grouped th:nth-child(2),
+    .md-content .keytable-grouped .keytable-group {
+        display: none;
+    }
+
+    /* 固定列宽，剩下的宽度平分给没指定宽度的列 */
+    .md-content .keytable {
+        table-layout: fixed;
+    }
+
+    /* 速查表：分类约四个字，按键一列放得下 <leader><space>，剩下的给说明 */
+    .md-content .keytable-grouped th:nth-child(1) {
+        width: 4.8em;
+    }
+
+    .md-content .keytable-grouped th:nth-child(3) {
+        width: 8em;
+    }
+
+    /* 对照表：分类约两个字，操作约五个字，两列按键平分剩下的宽度 */
+    .md-content .keytable:not(.keytable-grouped) th:nth-child(1) {
+        width: 3em;
+    }
+
+    .md-content .keytable:not(.keytable-grouped) th:nth-child(2) {
+        width: 5em;
+    }
+
+    .keytable:not(.keytable-grouped) td code {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .keytable-grouped td:last-child code {
+        white-space: normal;
+        word-break: break-all;
+    }
+}

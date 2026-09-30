@@ -1,0 +1,64 @@
+{{- /*
+  按键速查表，支持合并单元格。数据文件放在文章目录（page bundle）里：
+
+    {{< keytable "doom-keys.yaml" >}}
+
+  数据格式：
+    columns: [分类, 操作组, 按键, 作用]
+    sections:
+      - name: 分类名
+        groups:            # 有 groups 时，分类和操作组两列都会合并
+          - name: 操作组名
+            rows:
+              - ['`SPC f f`', 打开文件]
+      - name: 分类名
+        rows:              # 没有 groups 时，只合并分类这一列
+          - [打开文件, '`SPC f f`', '`<leader>ff`']
+
+  单元格内容按 Markdown 渲染，按键用反引号包起来。
+*/ -}}
+{{- $file := .Get 0 -}}
+{{- $res := .Page.Resources.Get $file -}}
+{{- if not $res -}}
+  {{- errorf "keytable: %s 不在 %s 的目录里" $file .Page.File.Path -}}
+{{- end -}}
+{{- $data := $res | transform.Unmarshal -}}
+{{- $grouped := false -}}
+{{- range $data.sections }}{{ if .groups }}{{ $grouped = true }}{{ end }}{{ end -}}
+<div class="keytable-wrap">
+<table class="keytable{{ if $grouped }} keytable-grouped{{ end }}">
+  <thead>
+    <tr>
+      {{- range $data.columns }}<th>{{ . | markdownify }}</th>{{ end -}}
+    </tr>
+  </thead>
+  <tbody>
+  {{- range $data.sections }}
+    {{- $section := . -}}
+    {{- $groups := slice -}}
+    {{- if .groups -}}
+      {{- $groups = .groups -}}
+    {{- else -}}
+      {{- $groups = slice (dict "rows" .rows) -}}
+    {{- end -}}
+    {{- $total := 0 -}}
+    {{- range $groups }}{{ $total = add $total (len .rows) }}{{ end -}}
+    {{- range $gi, $group := $groups }}
+      {{- range $ri, $row := $group.rows }}
+    <tr>
+        {{- if and (eq $gi 0) (eq $ri 0) }}
+      <td class="keytable-section" rowspan="{{ $total }}">{{ $section.name | markdownify }}</td>
+        {{- end }}
+        {{- if and $section.groups (eq $ri 0) }}
+      <td class="keytable-group" rowspan="{{ len $group.rows }}">{{ $group.name | markdownify }}</td>
+        {{- end }}
+        {{- range $row }}
+      <td>{{ . | markdownify }}</td>
+        {{- end }}
+    </tr>
+      {{- end }}
+    {{- end }}
+  {{- end }}
+  </tbody>
+</table>
+</div>
