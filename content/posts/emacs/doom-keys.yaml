@@ -58,6 +58,10 @@ sections:
     rows:
     - ['`SPC m t`', 弹出状态列表，按字母选择（字母在 `org-todo-keywords` 里配置）]
     - ['`RET`', 在标题上切换 TODO ↔ DONE]
+  - name: 列表与复选框
+    rows:
+    - ['`C-RET`', '在下方插入同级条目（当前是复选框时，新条目也带 `[ ]`）']
+    - ['`RET`', 在复选框条目上勾选 / 取消勾选]
   - name: 日期
     rows:
     - ['`SPC m d s`', 设置计划日期（SCHEDULED）]
