@@ -3,6 +3,7 @@ title: 分布式系统中的唯一 ID 设计：从自增主键到 Snowflake 与 
 date: 2026-11-06T09:52:51+08:00
 draft: false
 tags: [Distributed Systems, Architecture, Database]
+series: [分布式系统设计]
 ---
 
 单机时代，生成 ID 是一件不需要思考的事：数据库 `AUTO_INCREMENT` 一开，万事大吉。可一旦分库分表、多机房部署，问题就来了——**多台机器各自生成的 ID，怎么保证全局不重复？**

@@ -3,6 +3,7 @@ title: 分布式系统中的幂等设计：重试的另一半
 date: '2026-11-06T12:38:08+08:00'
 draft: false
 tags: [Distributed Systems, Architecture, Database]
+series: [分布式系统设计]
 ---
 
 在[订单号设计]({{< relref "/posts/distributed-order-number/index.md" >}})那篇文章的最后，提到了用订单号来防止重复下单。这其实只是幂等的一个特例。在分布式系统里，幂等几乎无处不在：支付回调、消息消费、接口重试、定时任务……只要有“重试”，就必须有幂等。

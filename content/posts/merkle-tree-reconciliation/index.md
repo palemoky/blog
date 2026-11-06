@@ -3,6 +3,7 @@ title: 基于 Merkle Tree 的对账系统：只比较不一样的部分
 date: '2026-11-06T13:03:50+08:00'
 draft: false
 tags: [Distributed Systems, Architecture, Database]
+series: [分布式系统设计]
 ---
 
 做过支付的人都知道，**对账**是资金安全的最后一道防线。前面几篇聊了[订单号]({{< relref "/posts/distributed-order-number/index.md" >}})和[幂等]({{< relref "/posts/distributed-idempotency/index.md" >}})，它们都在尽量保证“不出错”；而对账要解决的是另一个问题：**万一出错了，能不能及时发现？**

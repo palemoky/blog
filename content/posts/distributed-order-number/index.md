@@ -3,6 +3,7 @@ title: 分布式系统中的订单号设计：唯一、可读、可路由
 date: 2026-11-06T11:16:14+08:00
 draft: false
 tags: [Distributed Systems, Architecture, Database]
+series: [分布式系统设计]
 ---
 
 前两篇聊了[通用的分布式 ID 生成方案]({{< relref "/posts/distributed-uid-design/index.md" >}})和[用户 UID 的设计]({{< relref "/posts/distributed-user-uid/index.md" >}})。订单号看起来只是“又一个 ID”，但它的约束比前两者都多：

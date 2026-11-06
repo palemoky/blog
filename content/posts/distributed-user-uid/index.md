@@ -1,8 +1,9 @@
 ---
-title: 分布式系统下的用户 UID 设计：内部 ID、展示号与登录凭证
+title: 分布式系统中的用户 UID 设计：内部 ID、展示号与登录凭证
 date: 2026-11-06T10:46:59+08:00
 draft: false
 tags: [Distributed Systems, Architecture, Database]
+series: [分布式系统设计]
 ---
 
 上一篇[分布式系统中的唯一 ID 设计]({{< relref "/posts/distributed-uid-design/index.md" >}})聊的是“怎么生成一个不重复的 ID”。但落到**用户**这个实体上，事情要复杂得多：
