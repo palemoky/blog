@@ -6,6 +6,12 @@ enableRobotsTXT = true
 defaultContentLanguage = 'zh'
 defaultContentLanguageInSubdir = false
 
+# 声明 taxonomies 会覆盖 Hugo 的默认值，tags 和 categories 必须一起写上
+[taxonomies]
+category = 'categories'
+tag = 'tags'
+series = 'series'
+
 [pagination]
 pagerSize = 10
 

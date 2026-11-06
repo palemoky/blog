@@ -1,0 +1,20 @@
+{{- /* 文末的系列导航：front matter 里写了 series 的文章，自动列出同系列的所有文章，按发布时间排序 */ -}}
+{{- range .GetTerms "series" }}
+{{- $pages := .Pages.ByDate }}
+<nav class="post-series" aria-label="系列文章">
+  <p class="post-series-title">
+    本文属于系列<a href="{{ .Permalink }}">「{{ .LinkTitle }}」</a>，共 {{ len $pages }} 篇
+  </p>
+  <ol>
+    {{- range $pages }}
+    <li>
+      {{- if eq .Permalink $.Permalink }}
+      <span aria-current="page">{{ .LinkTitle }}</span>
+      {{- else }}
+      <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ol>
+</nav>
+{{- end }}

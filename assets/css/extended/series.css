@@ -1,0 +1,43 @@
+/* 文末系列导航，颜色使用 PaperMod 的主题变量，自动适配明暗模式 */
+.post-series {
+    margin-top: var(--gap);
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--entry);
+    font-size: 15px;
+}
+
+.post-series-title {
+    margin: 0 0 8px;
+    color: var(--secondary);
+}
+
+.post-series-title a {
+    color: var(--primary);
+    box-shadow: 0 1px 0 var(--primary);
+}
+
+.post-series ol {
+    margin: 0;
+    padding-inline-start: 1.5em;
+}
+
+.post-series li {
+    margin: 4px 0;
+    line-height: 1.6;
+}
+
+.post-series li a {
+    color: var(--content);
+}
+
+.post-series li a:hover {
+    color: var(--primary);
+    box-shadow: 0 1px 0 var(--primary);
+}
+
+.post-series [aria-current="page"] {
+    color: var(--primary);
+    font-weight: 600;
+}

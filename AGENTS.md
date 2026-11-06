@@ -38,6 +38,8 @@ tags: [Distributed Systems, Architecture, Database]
 - 文章排序只靠 `date`，不要用 `weight` 调整顺序。系列文章按发布先后给 `date`，最新的排在最前面。
 - 不要修改已发布文章的 `date`，除非明确要求。
 - `tags` 优先复用已有标签，不要随意新建近义标签。现有标签：`工具`、`原理`、`学习`、`英语`、`随笔`、`Linux`、`Git`、`Emacs`、`Neovim`、`AI`、`Claude`、`Distributed Systems`、`Architecture`、`Database`、`Security`、`Docker`、`Redis`。查看最新列表：`grep -h '^tags:' content/posts/*/index.md`。
+- 成系列的文章加 `series: [系列名]`，文末会自动列出同系列的所有文章（按 `date` 从早到晚排序），不需要手动维护链接。现有系列：`分布式系统设计`。标题里不加“（一）（二）”这类编号，每篇文章应能独立阅读。
+- 新增分类法时，`hugo.toml` 的 `[taxonomies]` 要保留 `tag` 和 `category`。声明 `[taxonomies]` 会覆盖 Hugo 的默认值，漏写会导致标签页消失。
 
 ## 写作约定
 
@@ -69,6 +71,7 @@ PaperMod 通过 Hugo Module 引入（见 `go.mod` 和 `hugo.toml` 的 `[module]`
 | `layouts/_markup/render-codeblock.html` | 给代码块包一层带 `data-lang` 的容器 |
 | `layouts/partials/extend_head.html` | 页面含公式时加载 KaTeX CSS |
 | `layouts/partials/comments.html` | giscus 评论，并跟随站点明暗主题切换 |
+| `layouts/partials/extend_post_content.html` | 文末的系列导航（样式见 `assets/css/extended/series.css`） |
 | `layouts/shortcodes/keytable.html` | 按键速查表 |
 | `assets/css/extended/*.css` | 自定义样式，PaperMod 会自动合并 |
 
