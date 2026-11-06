@@ -1,0 +1,10 @@
+{{- /* 构建时用 KaTeX 渲染 $...$ / $$...$$，页面无需加载 JS */ -}}
+{{- $opts := dict "output" "htmlAndMathml" "displayMode" (eq .Type "block") }}
+{{- with try (transform.ToMath .Inner $opts) }}
+  {{- with .Err }}
+    {{- errorf "KaTeX 渲染失败: %s，位置: %s" . $.Position }}
+  {{- else }}
+    {{- .Value }}
+    {{- $.Page.Store.Set "hasMath" true }}
+  {{- end }}
+{{- end -}}

@@ -1,0 +1,29 @@
+/* 代码块右上角显示语言，悬停时让位给复制按钮 */
+.code-block {
+    position: relative;
+}
+
+.code-block[data-lang]::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    z-index: 1;
+    padding: 0 5px;
+    font-size: 12px;
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.55);
+    text-transform: lowercase;
+    pointer-events: none;
+    user-select: none;
+}
+
+.code-block[data-lang]:hover::before {
+    display: none;
+}
+
+/* 行间公式过宽时横向滚动 */
+.katex-display {
+    overflow-x: auto;
+    overflow-y: hidden;
+}

@@ -42,6 +42,12 @@ disableHLJS = true
 lightTheme = "light"
 darkTheme = "dark"
 
+[markup.goldmark.extensions.passthrough]
+enable = true
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['\\[', '\\]'], ['$$', '$$']]
+inline = [['\\(', '\\)'], ['$', '$']]
+
 [markup.highlight]
 noClasses = false
 anchorLineNos = false
