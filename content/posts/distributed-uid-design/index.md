@@ -1,6 +1,6 @@
 ---
 title: 分布式系统中的唯一 ID 设计：从自增主键到 Snowflake 与 UUIDv7
-date: 2026-11-06
+date: 2026-11-06T09:52:51+08:00
 draft: false
 tags: [Distributed Systems, Architecture, Database]
 ---

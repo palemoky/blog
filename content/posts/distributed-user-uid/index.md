@@ -1,6 +1,6 @@
 ---
 title: 分布式系统下的用户 UID 设计：内部 ID、展示号与登录凭证
-date: 2026-11-06
+date: 2026-11-06T10:46:59+08:00
 draft: false
 tags: [Distributed Systems, Architecture, Database]
 ---

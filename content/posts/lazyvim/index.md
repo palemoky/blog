@@ -1,6 +1,6 @@
 ---
 title: LazyVim
-date: 2026-09-30
+date: 2026-09-30T17:30:30+08:00
 draft: false
 tags: [工具, Neovim]
 ---

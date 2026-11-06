@@ -1,6 +1,6 @@
 ---
 title: Hello World, Again
-date: 2025-06-25
+date: 2026-06-25
 draft: false
 tags: [随笔]
 ---

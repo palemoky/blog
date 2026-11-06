@@ -1,6 +1,6 @@
 ---
 title: 分布式系统中的订单号设计：唯一、可读、可路由
-date: 2026-11-06
+date: 2026-11-06T11:16:14+08:00
 draft: false
 tags: [Distributed Systems, Architecture, Database]
 ---

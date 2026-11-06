@@ -1,6 +1,6 @@
 ---
 title: 为什么你的 Claude 周额度和别人不在同一天重置：从分布式系统看限额调度
-date: 2026-11-06
+date: 2026-11-06T08:52:35+08:00
 draft: false
 tags: [AI, Claude, Distributed Systems]
 ---
