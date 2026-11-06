@@ -1039,7 +1039,7 @@ zellij list-sessions            # 查看所有后台保留运行的会话
 
 ## 防火墙
 
-<img src="/Linux/imgs/firewall.png" alt="Linux Firewall" style="width: 40%; float: right; margin: 0 0 20px 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+![Linux Firewall](imgs/firewall.png)
 
 如图所示，Linux 中提供了多种防火墙工具，最上层是不同 Linux 发行版本提供的防火墙管理工具，可以简单设置防火墙规则；中间是内核的接口层，具有很强的灵活性和精细的控制能力，`iptables` 已经被 `nftables` 取代；最下层是 `netfilter`，是 Linux 内核中的防火墙。
 
@@ -1049,7 +1049,7 @@ zellij list-sessions            # 查看所有后台保留运行的会话
 
 `iptables` 底层调用netfilter，但由于 已经被 `nftables` 取代，目前仍有需要系统使用 `iptables`，只需要能够读懂即可。
 
-![iptables](/Linux/imgs/iptables.png)
+![iptables](imgs/iptables.png)
 
 语法规则：
 

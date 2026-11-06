@@ -6,7 +6,8 @@ Palemoky 的个人中文技术博客，https://blog.palemoky.com 。基于 Hugo�
 
 - `hugo.toml`：站点唯一的配置文件。
 - `content/posts/<slug>/index.md`：每篇文章是一个目录（page bundle），图片放在同目录的 `imgs/`，数据文件（如 keytable 的 yaml）也放在同目录。
-- `content/` 下的 `about.md`、`resources.md`、`search.md`：独立页面。
+- `content/` 下的 `about.md`、`resources.md`、`search.md`、`archives.md`：独立页面。
+- 站点时区是 UTC（`timeZone = 'UTC'`），文章 `date` 里自带的 `+08:00` 时区照常生效。
 - `archetypes/posts/`：新文章的目录模板。
 - `layouts/`、`assets/css/extended/`：对主题的覆盖和扩展，见下文“修改主题”。
 - `static/`：favicon 等静态文件。
@@ -45,7 +46,7 @@ tags: [Distributed Systems, Architecture, Database]
   ```markdown
   [用户 UID 的设计]({{< relref "/posts/distributed-user-uid/index.md" >}})
   ```
-- 图片用相对路径引用本目录下的 `imgs/`：`![说明](imgs/xxx.webp)`。
+- 图片用相对路径引用本目录下的 `imgs/`：`![说明](imgs/xxx.webp)`。不要写 HTML `<img>`，Hugo 默认会丢弃 Markdown 里的原始 HTML。
 - **代码块必须标注语言**（` ```go `、` ```bash `、` ```text ` 等）。语言名会显示在代码块右上角，不标就不显示。
 - 按键速查表用 `keytable` shortcode：`{{< keytable "xxx-keys.yaml" >}}`，yaml 放在文章目录里，数据格式见 `layouts/shortcodes/keytable.html` 顶部的注释。
 
