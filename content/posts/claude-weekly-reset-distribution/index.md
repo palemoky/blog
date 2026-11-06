@@ -111,7 +111,7 @@ def next_reset(account_id: str, now: int, epoch: int = 0) -> int:
 
 ---
 
-## 对我们使用者的启示
+## 对我们用户的启示
 
 1. **先查清自己的重置时间**：Settings → Usage 或 `/usage`，别凭感觉；
 2. **按自己的周期规划重活**：比如重置前一天额度还剩很多，可以安排大型重构或批量任务，不用就浪费了；
